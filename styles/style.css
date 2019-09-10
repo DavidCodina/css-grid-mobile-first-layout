@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+body {
+  background-color: floralWhite;
+}
+
+main {
+  min-height: 100vh;
+  padding: 0 50px 50px 50px;
+}
+
+header {
+}
+
+.fancy-h1 {
+  margin: 0;
+  padding: 50px 0;
+  color: snow;
+  text-align: center;
+  font-size: 64px;
+  font-family: Montserrat;
+  letter-spacing: 3px;
+  line-height: 1.25;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #61DAFB;
+  text-shadow: -3px 3px 6px rgba(0,0,0,0.15);
+}
+
+.fancy-h2 {
+  color: snow;
+  font-size: 40px;
+  font-family: Montserrat;
+  letter-spacing: 1px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: violet;
+  text-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+}
+
+.article {
+  width: 100%;
+  margin: 50px auto;
+  padding: 25px;
+  color: #333;
+  background-color: snow;
+  border: 2px solid #61DAFB;
+  border-radius: 1.5rem  !important;
+}
+
+
+/* =============================================================================
+
+============================================================================= */
+
+
+/* ===============================
+   General grid container styles
+================================ */
+/* Note: If we were to use auto instead of 1fr, then the grid items would
+be sized based on their content. That's not what we want here. */
+
+
+.section-1, .section-2, .section-3,
+.section-4, .section-5, .section-6,
+.section-7 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+
+/* ===============================
+     General grid item styles
+================================ */
+
+
+.whole, .half, .third, .fourth, .sixth {
+  padding: 25px 0;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+
+/* ===============================
+Specific grid item styles by section
+================================ */
+
+
+.section-1 > * { background-color: #FF355E; }  /* .section-1 grid items (1 item):  */
+.section-2 > * { background-color: #FF6037; }  /* .section-2 grid items (2 items): */
+.section-3 > * { background-color: #FF9933; }  /* .section-3 grid items (3 items): */
+.section-4 > * { background-color: #FFFF66; }  /* .section-4 grid items (4 items): */
+.section-5 > * { background-color: #66FF66; }  /* .section-5 grid items (6 items): */
+.section-6 > * { background-color: #50BFE6; }  /* .section-6 grid items (3 items): */
+.section-7 > * { background-color: #FF00CC; }  /* .section-7 grid items (4 items): */
+
+
+/* ===============================
+Specific grid item styles by fractional class.
+================================ */
+/* Initially, each item will be given a span of 12.
+However, as the screen width expands the span of the grid items will change
+until they match their corresponding class designation. */
+
+
+.whole  { grid-column-end: span 12; }
+.half   { grid-column-end: span 12;  }
+.third  { grid-column-end: span 12;  }
+.fourth { grid-column-end: span 12;  }
+.sixth  { grid-column-end: span 12;  }
+
+
+/* =============================================================================
+                                 Layout Media Queries
+============================================================================= */
+
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default. */
+
+
+/* ===============================
+     Max: 2 items per row
+================================ */
+
+
+/* Small devices (landscape phones, 576px - 767px) */
+@media (min-width: 576px) {
+  .half { grid-column-end: span 6; }
+
+  .third:nth-of-type(1) { grid-column-end: span 6;  }
+  .third:nth-of-type(2) { grid-column-end: span 6;  }
+  .third:nth-of-type(3) { grid-column-end: span 12; }
+
+  .fourth:nth-of-type(1) { grid-column-end: span 6; }
+  .fourth:nth-of-type(2) { grid-column-end: span 6; }
+  .fourth:nth-of-type(3) { grid-column-end: span 6; }
+  .fourth:nth-of-type(4) { grid-column-end: span 6; }
+
+  .sixth:nth-of-type(1) { grid-column-end: span 6; }
+  .sixth:nth-of-type(2) { grid-column-end: span 6; }
+  .sixth:nth-of-type(3) { grid-column-end: span 6; }
+  .sixth:nth-of-type(4) { grid-column-end: span 6; }
+  .sixth:nth-of-type(5) { grid-column-end: span 6; }
+  .sixth:nth-of-type(6) { grid-column-end: span 6; }
+}
+
+
+/* ===============================
+      Max: 3 items per row
+================================ */
+
+
+/* Medium devices (tablets, 768px - 991px) */
+@media (min-width: 768px) {
+  .third:nth-of-type(n) { grid-column-end: span 4; }
+
+  .fourth:nth-of-type(1) { grid-column-end: span 4;  }
+  .fourth:nth-of-type(2) { grid-column-end: span 4;  }
+  .fourth:nth-of-type(3) { grid-column-end: span 4;  }
+  .fourth:nth-of-type(4) { grid-column-end: span 12; }
+
+  .sixth:nth-of-type(1) { grid-column-end: span 4; }
+  .sixth:nth-of-type(2) { grid-column-end: span 4; }
+  .sixth:nth-of-type(3) { grid-column-end: span 4; }
+  .sixth:nth-of-type(4) { grid-column-end: span 4; }
+  .sixth:nth-of-type(5) { grid-column-end: span 4; }
+  .sixth:nth-of-type(6) { grid-column-end: span 4; }
+}
+
+
+/* ===============================
+       Max: 4 items per row
+================================ */
+
+
+/* Large devices (desktops, 992px - 1199px) */
+@media (min-width: 992px) {
+  .fourth:nth-of-type(n) { grid-column-end: span 3; }
+
+  .sixth:nth-of-type(1) { grid-column-end: span 3; }
+  .sixth:nth-of-type(2) { grid-column-end: span 3; }
+  .sixth:nth-of-type(3) { grid-column-end: span 3; }
+  .sixth:nth-of-type(4) { grid-column-end: span 3; }
+  .sixth:nth-of-type(5) { grid-column-end: span 6; }
+  .sixth:nth-of-type(6) { grid-column-end: span 6; }
+}
+
+
+/* ===============================
+       Max: 6+ items per row
+================================ */
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .sixth:nth-of-type(n)  { grid-column-end: span 2;  }
+}
